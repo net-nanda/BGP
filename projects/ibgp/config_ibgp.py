@@ -14,7 +14,7 @@ def config_worker(username, password, device):
             'device_type': 'cisco_ios'
         }
         session = ConnectHandler(**dev_dict)
-        file_path = '/home/nanda/GNS3/projects/ibgp/'+str(device)+'.cfg'
+        file_path = 'projects/ibgp/'+str(device)+'.cfg'
         with open (file_path, 'r') as f:
             commands = f.read().splitlines()
         output = session.send_config_set(commands)
