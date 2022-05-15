@@ -30,7 +30,7 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
                         sh 'python3 projects/ibgp/python_scripts/post_validation.py'
-                        sh 'zip changeReq123_output.zip projects/ibgp/output'
+                        sh 'zip -r changeReq123_output.zip projects/ibgp/output'
                         archiveArtifacts artifacts: 'changeReq123_output.zip'
                         cleanWs()
                     }
