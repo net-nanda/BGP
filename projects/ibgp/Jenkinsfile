@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    stages {
+        stage('pre_validation') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
+                        sh 'mkdir -p output/{pre_validation,configure,post_validation}'
+                        sh 'python3 projects/ibgp/python_scripts/pre_validation.py'
+                    }
+                }
+            }
+        }
+        stage('configure') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
+                        sh 'python3 projects/ibgp/python_scripts/configure.py'
+                    }
+                }
+            }
+        }
+        stage('post_validation') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
+                        sh 'python3 projects/ibgp/python_scripts/post_validation.py'
+                  		sh 'zip -r changeReq123_output.zip changeReq123'
+                        archiveArtifacts artifacts: 'changeReq123_output.zip'
+                        cleanWs()
+                    }
+                }
+            }
+        }
+    }
+}
+

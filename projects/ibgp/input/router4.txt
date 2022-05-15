@@ -1,0 +1,6 @@
+terminal length 0
+ping 10.20.0.1
+ping 10.30.0.1
+ping 10.10.0.1
+show ip route
+show bgp summary

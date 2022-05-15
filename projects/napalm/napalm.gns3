@@ -4,8 +4,8 @@
     "auto_start": false,
     "drawing_grid_size": 25,
     "grid_size": 75,
-    "name": "basic-topology",
-    "project_id": "a5e96eb9-a6e5-4d3d-8257-819a11031607",
+    "name": "napalm",
+    "project_id": "5343f125-3176-495a-9dfe-7f9a22391a68",
     "revision": 9,
     "scene_height": 1000,
     "scene_width": 2000,
@@ -18,7 +18,7 @@
         "computes": [],
         "drawings": [
             {
-                "drawing_id": "f396795b-e7eb-45cd-9e6b-9160158cf7b2",
+                "drawing_id": "eb3ba5d6-1704-477e-8dcf-146cdb6a5176",
                 "locked": false,
                 "rotation": 0,
                 "svg": "<svg width=\"99\" height=\"25\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">10.12.0.0/30</text></svg>",
@@ -27,7 +27,7 @@
                 "z": 2
             },
             {
-                "drawing_id": "65e0d768-155b-4649-aaca-4a59c5c842eb",
+                "drawing_id": "331c63ce-6e34-410e-9129-5269b178ddb6",
                 "locked": false,
                 "rotation": 0,
                 "svg": "<svg width=\"99\" height=\"25\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">10.23.0.0/30</text></svg>",
@@ -36,7 +36,7 @@
                 "z": 2
             },
             {
-                "drawing_id": "9a0805b5-4003-4f1b-ae4a-c18cf9ef862b",
+                "drawing_id": "4abe36ae-65a3-448e-a1bf-b48e20d620b5",
                 "locked": false,
                 "rotation": 0,
                 "svg": "<svg width=\"99\" height=\"25\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">10.34.0.0/30</text></svg>",
@@ -45,7 +45,7 @@
                 "z": 2
             },
             {
-                "drawing_id": "6d70677d-e3dc-4f3e-98c9-fe8211a30346",
+                "drawing_id": "5fd9cd07-20da-4b3c-96f0-49d855cf2bc8",
                 "locked": false,
                 "rotation": 0,
                 "svg": "<svg width=\"99\" height=\"25\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">10.41.0.0/30</text></svg>",
@@ -54,7 +54,7 @@
                 "z": 2
             },
             {
-                "drawing_id": "0aafecb2-0d5f-48f2-9f92-220b623348a4",
+                "drawing_id": "1e41b34a-39d5-447d-a4a6-b3ffc87da85a",
                 "locked": false,
                 "rotation": 0,
                 "svg": "<svg width=\"140\" height=\"76\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">s1/0: 10.12.0.1/30\ns1/1: 10.41.0.2/30\nlo0: 10.10.0.0/24\nlo1: 10.11.0.0/24</text></svg>",
@@ -63,7 +63,7 @@
                 "z": 2
             },
             {
-                "drawing_id": "f65cf750-2dab-4589-84de-4ae283cbbbbd",
+                "drawing_id": "9a11387c-e5cc-426e-b534-614ba009f7d8",
                 "locked": false,
                 "rotation": 0,
                 "svg": "<svg width=\"140\" height=\"76\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">s1/0: 10.12.0.2/30\ns1/1: 10.23.0.1/30\nlo0: 10.20.0.0/24\nlo1: 10.21.0.0/24</text></svg>",
@@ -72,7 +72,7 @@
                 "z": 2
             },
             {
-                "drawing_id": "4a657c29-f9a9-47f1-b6c0-7c7c1bdf74f4",
+                "drawing_id": "31c9c2e5-fb8c-4790-a720-84221bfc1e8b",
                 "locked": false,
                 "rotation": 0,
                 "svg": "<svg width=\"140\" height=\"76\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">s1/0: 10.23.0.2/30\ns1/1: 10.34.0.1/30\nlo0: 10.30.0.0/24\nlo1: 10.31.0.0/24</text></svg>",
@@ -81,7 +81,7 @@
                 "z": 2
             },
             {
-                "drawing_id": "eb12aae9-a4f6-48b5-89ef-ffe8c66fa263",
+                "drawing_id": "e2ee3673-2346-4bfb-867a-bbc9080d3aa0",
                 "locked": false,
                 "rotation": 0,
                 "svg": "<svg width=\"144\" height=\"76\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">s1/0: 10.34.0.2/30 \ns1/1: 10.41.0.1/30\nlo0: 10.40.0.0/24\nlo1: 10.42.0.0/24</text></svg>",
@@ -90,7 +90,7 @@
                 "z": 2
             },
             {
-                "drawing_id": "0344e1e5-6c52-45b5-a8b4-785b24365c93",
+                "drawing_id": "35313f64-eb7e-41d0-9ef2-242b0e5dd238",
                 "locked": false,
                 "rotation": 0,
                 "svg": "<svg width=\"206\" height=\"104\"><text font-family=\"Ubuntu\" font-size=\"20.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">Ubuntu: 20.04.1\nPython3: 3.8.10\nNetmiko: 4.0.0</text></svg>",
@@ -99,7 +99,7 @@
                 "z": 2
             },
             {
-                "drawing_id": "19661d04-6c74-4dcd-bea5-d090a80863dd",
+                "drawing_id": "18581ab9-5ca1-4ebc-a298-c0efe8ae1e43",
                 "locked": false,
                 "rotation": 0,
                 "svg": "<svg width=\"117\" height=\"25\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">172.16.54.0/24</text></svg>",
@@ -108,7 +108,7 @@
                 "z": 2
             },
             {
-                "drawing_id": "cb123f25-a39b-4064-9107-c6fbe1236aef",
+                "drawing_id": "c2dcdb53-b9d5-42fa-a944-b05fa7f7757d",
                 "locked": false,
                 "rotation": 0,
                 "svg": "<svg width=\"952\" height=\"445\"><text font-family=\"Mukti Narrow\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">Description:\nThis a basic topology for all LABs. \nThere are 4 routers in the lab (router1_172_16_54_11, router2_172_16_54_22, router3_172_16_54_33, router4_172_16_54_44) OOBM IP is included in hostname.\n\n\nWe are going to use 172.16.54.0/24 subnet as our out of band management network. 172.16.54.xx/32 IP is included in router hostnames. For example\nrouter1 = 172.16.54.11/32 \nrouter2 = 172.16.54.22/32\nFa 0/0 interface on every router is dedicated for OOBM access. Ethernet switch is used for obtaining OOBM from DHCP server. \n\n\nWe are going to use /30 subnet for serial links. We follow the clockwise direction to assign /30 subnet. For example, from router1 to router2, 10.12.0.0/30 subnet. \nRouter1 = 10.12.0.1/30 \nRouter2 = 10.12.0.2/30\n\n\nLo0 and lo1 are used as LAN network with /24 subnet. \n\n</text></svg>",
@@ -120,7 +120,7 @@
         "links": [
             {
                 "filters": {},
-                "link_id": "4845c2c4-ce31-412d-b9f2-f7f2ec589e3a",
+                "link_id": "5ca330f9-9f1d-4585-aad8-e5af40f1cb9a",
                 "link_style": {},
                 "nodes": [
                     {
@@ -132,7 +132,7 @@
                             "x": 78,
                             "y": -18
                         },
-                        "node_id": "eef5c1b5-06ac-4e35-8efa-50786ad9f627",
+                        "node_id": "b5562747-5716-448a-86d5-94b329b4214b",
                         "port_number": 0
                     },
                     {
@@ -144,7 +144,7 @@
                             "x": -8,
                             "y": 50
                         },
-                        "node_id": "0528c8ff-6df9-4364-9819-dc0f10a62b22",
+                        "node_id": "c34bb904-2db9-4d33-b93c-7c5eaa9fdc37",
                         "port_number": 0
                     }
                 ],
@@ -152,7 +152,7 @@
             },
             {
                 "filters": {},
-                "link_id": "04f2768b-63cc-412f-8098-d2bdf671dc89",
+                "link_id": "741f5067-d4fd-4806-8ebf-1d8f7b45ac4a",
                 "link_style": {},
                 "nodes": [
                     {
@@ -164,7 +164,7 @@
                             "x": 42,
                             "y": 45
                         },
-                        "node_id": "0528c8ff-6df9-4364-9819-dc0f10a62b22",
+                        "node_id": "c34bb904-2db9-4d33-b93c-7c5eaa9fdc37",
                         "port_number": 1
                     },
                     {
@@ -176,7 +176,7 @@
                             "x": -45,
                             "y": -8
                         },
-                        "node_id": "ff6efb5b-07b1-49f9-ab01-496da78881cc",
+                        "node_id": "dcb4cddb-ae90-46f0-99e3-4f9b9ae48709",
                         "port_number": 0
                     }
                 ],
@@ -184,7 +184,7 @@
             },
             {
                 "filters": {},
-                "link_id": "afc306ef-6884-4ba7-93f9-816d40bb927d",
+                "link_id": "62ffd7b0-8521-4223-8b90-d94090581964",
                 "link_style": {},
                 "nodes": [
                     {
@@ -196,7 +196,7 @@
                             "x": 83,
                             "y": 38
                         },
-                        "node_id": "eef5c1b5-06ac-4e35-8efa-50786ad9f627",
+                        "node_id": "b5562747-5716-448a-86d5-94b329b4214b",
                         "port_number": 1
                     },
                     {
@@ -208,7 +208,7 @@
                             "x": -33,
                             "y": -40
                         },
-                        "node_id": "8dfb627c-2274-4346-abef-a03188ab0d49",
+                        "node_id": "38a3181d-94c4-42c6-a232-05ef2808583b",
                         "port_number": 1
                     }
                 ],
@@ -216,7 +216,7 @@
             },
             {
                 "filters": {},
-                "link_id": "b0c768cd-2291-427d-8b8d-040b25337005",
+                "link_id": "175227a6-bb0f-4250-acc8-c648ca27eaff",
                 "link_style": {},
                 "nodes": [
                     {
@@ -228,7 +228,7 @@
                             "x": -47,
                             "y": 55
                         },
-                        "node_id": "ff6efb5b-07b1-49f9-ab01-496da78881cc",
+                        "node_id": "dcb4cddb-ae90-46f0-99e3-4f9b9ae48709",
                         "port_number": 1
                     },
                     {
@@ -240,7 +240,7 @@
                             "x": 52,
                             "y": -43
                         },
-                        "node_id": "8dfb627c-2274-4346-abef-a03188ab0d49",
+                        "node_id": "38a3181d-94c4-42c6-a232-05ef2808583b",
                         "port_number": 0
                     }
                 ],
@@ -248,7 +248,7 @@
             },
             {
                 "filters": {},
-                "link_id": "1d2cc906-fef1-4906-8ae8-0c5edd2db4c7",
+                "link_id": "bff45a76-18bf-4044-92d0-351ffb46a0f4",
                 "link_style": {},
                 "nodes": [
                     {
@@ -260,7 +260,7 @@
                             "x": 68,
                             "y": -6
                         },
-                        "node_id": "c66299fc-5be5-4c92-911c-125388d0d214",
+                        "node_id": "b551b8e3-89b8-4753-a220-d7ffd2fea5f6",
                         "port_number": 0
                     },
                     {
@@ -272,7 +272,7 @@
                             "x": -27,
                             "y": -11
                         },
-                        "node_id": "868f9e01-b33b-4b1f-b2a2-7f5a228fc7a3",
+                        "node_id": "b5a7f807-066d-4a38-a450-44a55cb890c5",
                         "port_number": 2
                     }
                 ],
@@ -280,7 +280,7 @@
             },
             {
                 "filters": {},
-                "link_id": "4cc72843-02d2-4860-8456-774254c5149d",
+                "link_id": "5a72cc02-91a5-41f8-9fd8-2d6ff70b33db",
                 "link_style": {},
                 "nodes": [
                     {
@@ -292,7 +292,7 @@
                             "x": -36,
                             "y": 17
                         },
-                        "node_id": "c66299fc-5be5-4c92-911c-125388d0d214",
+                        "node_id": "b551b8e3-89b8-4753-a220-d7ffd2fea5f6",
                         "port_number": 1
                     },
                     {
@@ -304,7 +304,7 @@
                             "x": 73,
                             "y": 22
                         },
-                        "node_id": "eef5c1b5-06ac-4e35-8efa-50786ad9f627",
+                        "node_id": "b5562747-5716-448a-86d5-94b329b4214b",
                         "port_number": 0
                     }
                 ],
@@ -312,7 +312,7 @@
             },
             {
                 "filters": {},
-                "link_id": "4b237ed3-78ae-45a8-96c1-12043e6aefba",
+                "link_id": "d4dffbf3-8faf-4f60-bfea-db61498e6c28",
                 "link_style": {},
                 "nodes": [
                     {
@@ -324,7 +324,7 @@
                             "x": 15,
                             "y": -51
                         },
-                        "node_id": "c66299fc-5be5-4c92-911c-125388d0d214",
+                        "node_id": "b551b8e3-89b8-4753-a220-d7ffd2fea5f6",
                         "port_number": 2
                     },
                     {
@@ -336,7 +336,7 @@
                             "x": 33,
                             "y": 62
                         },
-                        "node_id": "0528c8ff-6df9-4364-9819-dc0f10a62b22",
+                        "node_id": "c34bb904-2db9-4d33-b93c-7c5eaa9fdc37",
                         "port_number": 0
                     }
                 ],
@@ -344,7 +344,7 @@
             },
             {
                 "filters": {},
-                "link_id": "420f9e58-8e68-480a-aa1d-569894af7788",
+                "link_id": "420d8752-26ef-4384-b3f4-4d96966f30d1",
                 "link_style": {},
                 "nodes": [
                     {
@@ -356,7 +356,7 @@
                             "x": 75,
                             "y": 16
                         },
-                        "node_id": "c66299fc-5be5-4c92-911c-125388d0d214",
+                        "node_id": "b551b8e3-89b8-4753-a220-d7ffd2fea5f6",
                         "port_number": 3
                     },
                     {
@@ -368,7 +368,7 @@
                             "x": -76,
                             "y": 23
                         },
-                        "node_id": "ff6efb5b-07b1-49f9-ab01-496da78881cc",
+                        "node_id": "dcb4cddb-ae90-46f0-99e3-4f9b9ae48709",
                         "port_number": 0
                     }
                 ],
@@ -376,7 +376,7 @@
             },
             {
                 "filters": {},
-                "link_id": "68b1f44a-9823-4a56-b2ce-4ad2c456cf4f",
+                "link_id": "5d403e3b-a348-45a1-9d64-5af4ed043602",
                 "link_style": {},
                 "nodes": [
                     {
@@ -388,7 +388,7 @@
                             "x": 35,
                             "y": 56
                         },
-                        "node_id": "c66299fc-5be5-4c92-911c-125388d0d214",
+                        "node_id": "b551b8e3-89b8-4753-a220-d7ffd2fea5f6",
                         "port_number": 4
                     },
                     {
@@ -400,39 +400,7 @@
                             "x": 11,
                             "y": -30
                         },
-                        "node_id": "8dfb627c-2274-4346-abef-a03188ab0d49",
-                        "port_number": 0
-                    }
-                ],
-                "suspend": false
-            },
-            {
-                "filters": {},
-                "link_id": "5ecd4ca1-710e-4f19-8e8b-01ed12b1ca24",
-                "link_style": {},
-                "nodes": [
-                    {
-                        "adapter_number": 0,
-                        "label": {
-                            "rotation": 0,
-                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                            "text": "e5",
-                            "x": 20,
-                            "y": 53
-                        },
-                        "node_id": "c66299fc-5be5-4c92-911c-125388d0d214",
-                        "port_number": 5
-                    },
-                    {
-                        "adapter_number": 0,
-                        "label": {
-                            "rotation": 0,
-                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                            "text": "e0",
-                            "x": 47,
-                            "y": -7
-                        },
-                        "node_id": "10465b69-9de9-4326-bb6d-8c2e3b771fc1",
+                        "node_id": "38a3181d-94c4-42c6-a232-05ef2808583b",
                         "port_number": 0
                     }
                 ],
@@ -442,7 +410,7 @@
         "nodes": [
             {
                 "compute_id": "vm",
-                "console": 5001,
+                "console": 5006,
                 "console_auto_start": false,
                 "console_type": "telnet",
                 "custom_adapters": [],
@@ -457,7 +425,7 @@
                 },
                 "locked": false,
                 "name": "router1_172_16_54_11",
-                "node_id": "eef5c1b5-06ac-4e35-8efa-50786ad9f627",
+                "node_id": "b5562747-5716-448a-86d5-94b329b4214b",
                 "node_type": "dynamips",
                 "port_name_format": "Ethernet{0}",
                 "port_segment_size": 0,
@@ -465,7 +433,7 @@
                     "auto_delete_disks": true,
                     "aux": null,
                     "clock_divisor": 8,
-                    "disk0": 0,
+                    "disk0": 8,
                     "disk1": 0,
                     "dynamips_id": 1,
                     "exec_area": 64,
@@ -501,7 +469,7 @@
             },
             {
                 "compute_id": "vm",
-                "console": 5002,
+                "console": 5007,
                 "console_auto_start": false,
                 "console_type": "telnet",
                 "custom_adapters": [],
@@ -516,7 +484,7 @@
                 },
                 "locked": false,
                 "name": "router2_172_16_54_22",
-                "node_id": "0528c8ff-6df9-4364-9819-dc0f10a62b22",
+                "node_id": "c34bb904-2db9-4d33-b93c-7c5eaa9fdc37",
                 "node_type": "dynamips",
                 "port_name_format": "Ethernet{0}",
                 "port_segment_size": 0,
@@ -524,7 +492,7 @@
                     "auto_delete_disks": true,
                     "aux": null,
                     "clock_divisor": 8,
-                    "disk0": 0,
+                    "disk0": 8,
                     "disk1": 0,
                     "dynamips_id": 2,
                     "exec_area": 64,
@@ -560,7 +528,7 @@
             },
             {
                 "compute_id": "vm",
-                "console": 5003,
+                "console": 5008,
                 "console_auto_start": false,
                 "console_type": "telnet",
                 "custom_adapters": [],
@@ -575,7 +543,7 @@
                 },
                 "locked": false,
                 "name": "router3_172_16_54_33",
-                "node_id": "ff6efb5b-07b1-49f9-ab01-496da78881cc",
+                "node_id": "dcb4cddb-ae90-46f0-99e3-4f9b9ae48709",
                 "node_type": "dynamips",
                 "port_name_format": "Ethernet{0}",
                 "port_segment_size": 0,
@@ -583,7 +551,7 @@
                     "auto_delete_disks": true,
                     "aux": null,
                     "clock_divisor": 8,
-                    "disk0": 0,
+                    "disk0": 8,
                     "disk1": 0,
                     "dynamips_id": 3,
                     "exec_area": 64,
@@ -634,7 +602,7 @@
                 },
                 "locked": false,
                 "name": "DHCP_OOBM",
-                "node_id": "868f9e01-b33b-4b1f-b2a2-7f5a228fc7a3",
+                "node_id": "b5a7f807-066d-4a38-a450-44a55cb890c5",
                 "node_type": "cloud",
                 "port_name_format": "Ethernet{0}",
                 "port_segment_size": 0,
@@ -710,7 +678,7 @@
             },
             {
                 "compute_id": "vm",
-                "console": 5004,
+                "console": 5010,
                 "console_auto_start": false,
                 "console_type": "telnet",
                 "custom_adapters": [],
@@ -725,7 +693,7 @@
                 },
                 "locked": false,
                 "name": "R4_172_16_54_44",
-                "node_id": "8dfb627c-2274-4346-abef-a03188ab0d49",
+                "node_id": "38a3181d-94c4-42c6-a232-05ef2808583b",
                 "node_type": "dynamips",
                 "port_name_format": "Ethernet{0}",
                 "port_segment_size": 0,
@@ -733,7 +701,7 @@
                     "auto_delete_disks": true,
                     "aux": null,
                     "clock_divisor": 8,
-                    "disk0": 0,
+                    "disk0": 8,
                     "disk1": 0,
                     "dynamips_id": 4,
                     "exec_area": 64,
@@ -769,7 +737,7 @@
             },
             {
                 "compute_id": "vm",
-                "console": 5005,
+                "console": 5011,
                 "console_auto_start": false,
                 "console_type": "none",
                 "custom_adapters": [],
@@ -784,7 +752,7 @@
                 },
                 "locked": false,
                 "name": "Switch1",
-                "node_id": "c66299fc-5be5-4c92-911c-125388d0d214",
+                "node_id": "b551b8e3-89b8-4753-a220-d7ffd2fea5f6",
                 "node_type": "ethernet_switch",
                 "port_name_format": "Ethernet{0}",
                 "port_segment_size": 0,
@@ -846,50 +814,11 @@
                 "x": -410,
                 "y": -241,
                 "z": 1
-            },
-            {
-                "compute_id": "local",
-                "console": 5000,
-                "console_auto_start": true,
-                "console_type": "telnet",
-                "custom_adapters": [],
-                "first_port_name": "",
-                "height": 59,
-                "label": {
-                    "rotation": 0,
-                    "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                    "text": "JunOSOlive-1",
-                    "x": -19,
-                    "y": -25
-                },
-                "locked": false,
-                "name": "JunOSOlive-1",
-                "node_id": "10465b69-9de9-4326-bb6d-8c2e3b771fc1",
-                "node_type": "virtualbox",
-                "port_name_format": "Ethernet{0}",
-                "port_segment_size": 0,
-                "properties": {
-                    "adapter_type": "Intel PRO/1000 MT Desktop (82540EM)",
-                    "adapters": 4,
-                    "headless": false,
-                    "linked_clone": false,
-                    "on_close": "power_off",
-                    "ram": 512,
-                    "usage": "",
-                    "use_any_adapter": true,
-                    "vmname": "JunOS Olive"
-                },
-                "symbol": ":/symbols/vbox_guest.svg",
-                "template_id": "714e9ca1-d2c6-4ad6-9295-f4d4048f0d80",
-                "width": 65,
-                "x": -572,
-                "y": 165,
-                "z": 1
             }
         ]
     },
     "type": "topology",
     "variables": null,
     "version": "2.2.32",
-    "zoom": 47
+    "zoom": 62
 }

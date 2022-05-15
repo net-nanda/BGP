@@ -1,0 +1,47 @@
+ip domain name netnanda.com
+line vty 0 4
+transport input ssh
+login local
+crypto key generate rsa 
+1024
+username nanda privilege 15 password cisco123
+int fa0/0
+ip add 172.16.54.11 255.255.255.255
+no shut
+do wr mem
+
+ip domain name netnanda.com
+line vty 0 4
+transport input ssh
+login local
+crypto key generate rsa 
+1024
+username nanda privilege 15 password cisco123
+int fa0/0
+ip add 172.16.54.22 255.255.255.255
+no shut
+do wr mem
+
+ip domain name netnanda.com
+line vty 0 4
+transport input ssh
+login local
+crypto key generate rsa 
+1024
+username nanda privilege 15 password cisco123
+int fa0/0
+ip add 172.16.54.33 255.255.255.255
+no shut
+do wr mem
+
+ip domain name netnanda.com
+line vty 0 4
+transport input ssh
+login local
+crypto key generate rsa 
+1024
+username nanda privilege 15 password cisco123
+int fa 0/0
+ip add 172.16.54.44 255.255.255.255
+no shut
+do wr mem

@@ -6,19 +6,29 @@ import os
 
 
 def config_worker(username, password, device):
+    print ('---- logging to device ', device)
     try:
         dev_dict = {
             'username': username,
             'password': password,
             'ip': device,
-            'device_type': 'cisco_ios'
+            'device_type': 'cisco_ios',
+            'fast_cli': False
         }
         session = ConnectHandler(**dev_dict)
-        file_path = 'projects/ibgp/'+str(device)+'.cfg'
-        with open (file_path, 'r') as f:
-            commands = f.read().splitlines()
-        output = session.send_config_set(commands)
-        print(output)
+        command_file = 'input/'+device+'.txt'
+        with open(command_file, 'r') as f:
+            command_list = f.read().splitlines()
+        for command in command_list:
+            output = session.send_command(command, read_timeout=60)
+            print(output)
+            with open('output/pre_validation/'+device+'.txt', 'a+') as f:
+                string1 = "--- "+command+" ---\n"
+                f.write(string1)
+                f.write(output)
+                f.write('\n')
+                f.write('\n')
+                f.write('\n')
         return
     except NetmikoAuthenticationException:
         print ("Cannot reach the device", device)
