@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        post {
+            started {
+                slackSend "Build started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+            }
+        }
         stage('pre_validation') {
             steps {
                 slackSend channel: '#network-automation', message: 'performing pre-validation', color: "good"
@@ -19,7 +24,7 @@ pipeline {
         }
         stage('configure') {
             steps {
-                slackSend channel: '#network-automation', message: 'pushing the configuration'
+                slackSend channel: '#network-automation', message: 'pushing the configuration', color: "good"
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
                         sh 'python3 projects/ibgp/python_scripts/config_ibgp.py'
@@ -29,7 +34,7 @@ pipeline {
         }
         stage('post_validation') {
             steps {
-                slackSend channel: '#network-automation', message: 'performing the post-validation'
+                slackSend channel: '#network-automation', message: 'performing the post-validation', color: "good"
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
                         sh 'python3 projects/ibgp/python_scripts/post_validation.py'
@@ -38,6 +43,11 @@ pipeline {
                         cleanWs()
                     }
                 }
+            }
+        }
+        post {
+            success {
+                slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
             }
         }
     }
