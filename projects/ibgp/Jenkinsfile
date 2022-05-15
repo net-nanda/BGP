@@ -6,7 +6,9 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
                         sh 'mkdir -p projects/ibgp/output'
-                        sh 'mkdir projects/ibgp/output/{pre_validation,configure,post_validation}'
+                        sh 'mkdir projects/ibgp/output/pre_validation'
+                        sh 'mkdir projects/ibgp/output/post_validation'
+                        sh 'mkdir projects/ibgp/output/configure'
                         sh 'cd projects/ibgp/output && ls'
                         sh 'python3 projects/ibgp/python_scripts/pre_validation.py'
                     }
@@ -28,12 +30,12 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
                         sh 'python3 projects/ibgp/python_scripts/post_validation.py'
                   		sh 'zip -r changeReq123_output.zip projects/ibgp/output'
-                        archiveArtifacts artifacts: 'changeReq123_output.zip'
-                        cleanWs()
+                        archiveArtifacts artifacts: 'changeReq123_output.zip
                     }
                 }
             }
         }
     }
+    cleanWs()
 }
 
