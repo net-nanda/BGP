@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
-                        sh 'python3 projects/ibgp/python_scripts/configure.py'
+                        sh 'python3 projects/ibgp/python_scripts/config_bgp.py'
                     }
                 }
             }
