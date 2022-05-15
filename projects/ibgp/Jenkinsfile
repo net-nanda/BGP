@@ -4,7 +4,7 @@ pipeline {
         stage('pre_validation') {
             steps {
                 slackSend channel: '#network-automation', color: "good", message: "Build Started: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)"
-                slackSend failOnError:true message:"Build failed  - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+                slackSend failOnError: true, channel: '#network-automation', color: "danger", message: "Build failed: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)"
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
                         sh 'rm -rf projects/ibgp/output'
