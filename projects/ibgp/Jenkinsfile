@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        post {
-            always{
-                slackSend(channel: '#network-automation', message: "build started" )
-            }
-        }
         stage('pre_validation') {
             steps {
                 slackSend (channel: '#network-automation', message: 'performing pre-validation', color: "good")
@@ -43,6 +38,11 @@ pipeline {
                         cleanWs()
                     }
                 }
+            }
+        }
+        post {
+            always{
+                slackSend(channel: '#network-automation', message: "build started" )
             }
         }
     }
