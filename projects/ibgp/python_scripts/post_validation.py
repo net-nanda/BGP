@@ -16,13 +16,13 @@ def config_worker(username, password, device):
             'fast_cli': False
         }
         session = ConnectHandler(**dev_dict)
-        command_file = 'input/'+device+'.txt'
+        command_file = 'projects/ibgp/input/'+device+'.txt'
         with open(command_file, 'r') as f:
             command_list = f.read().splitlines()
         for command in command_list:
             output = session.send_command(command, read_timeout=60)
             print(output)
-            with open('output/post_validation/'+device+'.txt', 'a+') as f:
+            with open('projects/ibgp/output/post_validation/'+device+'.txt', 'a+') as f:
                 string1 = "--- "+command+" ---\n"
                 f.write(string1)
                 f.write(output)
