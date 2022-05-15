@@ -1,12 +1,12 @@
 pipeline {
     agent any
     stages {
-        post {
-            started {
-                slackSend "Build started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
-            }
-        }
         stage('pre_validation') {
+            post {
+                started {
+                    slackSend "Build started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+                }
+            }
             steps {
                 slackSend channel: '#network-automation', message: 'performing pre-validation', color: "good"
                 script {
@@ -44,11 +44,11 @@ pipeline {
                     }
                 }
             }
-        }
-        post {
-            success {
+            post {
+                success {
                 slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
             }
+        }
         }
     }
 }
