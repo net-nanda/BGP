@@ -8,7 +8,7 @@ pipeline {
                         sh 'mkdir -p projects/ibgp/output'
                         sh 'mkdir projects/ibgp/output/pre_validation'
                         sh 'mkdir projects/ibgp/output/post_validation'
-                        sh 'mkdir projects/ibgp/output/configure'
+                        sh 'mkdir projects/ibgp/output/configuration'
                         sh 'cd projects/ibgp/output && ls'
                         sh 'python3 projects/ibgp/python_scripts/pre_validation.py'
                     }
