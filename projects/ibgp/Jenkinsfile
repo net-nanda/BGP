@@ -41,15 +41,15 @@ pipeline {
     post {
        // only triggered when blue or green sign
        success {
-           slackSend ...
+           slackSend (channel: "#network-automation")
        }
        // triggered when red sign
        failure {
-           slackSend ...
+           slackSend (channel: "#network-automation")
        }
        // trigger every-works
        always {
-           slackSend ...
+           slackSend (channel: "#network-automation")
        }
     }
 }
