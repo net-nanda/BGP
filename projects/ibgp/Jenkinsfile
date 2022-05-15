@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        post {
+            always{
+                slackSend(channel: '#network-automation', ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>) )
+            }
+        }
         stage('pre_validation') {
             steps {
                 slackSend (channel: '#network-automation', message: 'performing pre-validation', color: "good")
