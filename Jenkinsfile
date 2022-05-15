@@ -1,55 +1,47 @@
-def COLOR_MAP = [
-    'SUCCESS': 'good', 
-    'FAILURE': 'danger',
-]
-
-
-def getBuildUser() {
-    return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserId()
-}
-
 pipeline {
-    // Set up local variables for your pipeline
-    environment {
-        // test variable: 0=success, 1=fail; must be string
-        doError = '0'
-        BUILD_USER = ''
-    }
-
     agent any
-
     stages {
-        stage('Error') {
-            // when doError is equal to 1, return an error
-            when {
-                expression { doError == '1' }
-            }
+        stage('pre_validation') {
             steps {
-                echo "Failure :("
-                error "Test failed on purpose, doError == str(1)"
+                slackSend channel: '#network-automation', color: "good", message: "Build Started: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>) ${env.BUILD_USER}"
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
+                        sh 'rm -rf projects/ibgp/output'
+                        sh 'mkdir -p projects/ibgp/output'
+                        sh 'mkdir projects/ibgp/output/pre_validation'
+                        sh 'mkdir projects/ibgp/output/post_validation'
+                        sh 'mkdir projects/ibgp/output/configuration'
+                        sh 'cd projects/ibgp/output && ls'
+                        sh 'python3 projects/ibgp/python_scripts/pre_validation.py'
+                    }
+                }
             }
         }
-        stage('Success') {
-            // when doError is equal to 0, just print a simple message
-            when {
-                expression { doError == '0' }
-            }
+        stage('configure') {
             steps {
-                echo "Success :)"
+                slackSend channel: '#network-automation', message: "pushing the configuration: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>) ${env.BUILD_USER}", color: "good" 
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
+                        sh 'python3 projects/ibgp/python_scripts/config_ibgp.py'
+                    }
+                }
             }
         }
-    }
+        stage('post_validation') {
+            steps {
+                slackSend channel: '#network-automation', message: "performing the post_validation: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>) ${env.BUILD_USER}", color: "good" 
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
+                        sh 'python3 projects/ibgp/python_scripts/post_validation.py'
+                        sh 'zip -r changeReq123_output.zip projects/ibgp/output'
+                        archiveArtifacts artifacts: 'changeReq123_output.zip'
+                        cleanWs()
+                    }
+                }
+                slackSend channel: '#network-automation', message: "Build Successfully deployed!: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)", color: "good"   
+            }
+        }
+        slackSend failOnError: true, channel: '#network-automation', color: "danger", message: "Build failed at pre_validation stage: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)"
 
-    // Post-build actions
-    post {
-        always {
-            script {
-                BUILD_USER = getBuildUser()
-            }
-            echo 'I will always say hello in the console.'
-            slackSend channel: '#network-automation',
-                color: COLOR_MAP[currentBuild.currentResult],
-                message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n More info at: ${env.BUILD_URL}"
-        }
     }
 }
