@@ -1,10 +1,9 @@
 pipeline {
     agent any
-    slackSend channel: '#network-automation', message: 'build started'
     stages {
         stage('pre_validation') {
-            slackSend channel: '#network-automation', message: 'performing pre-validation'
             steps {
+                slackSend channel: '#network-automation', message: 'performing pre-validation'
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
                         sh 'rm -rf projects/ibgp/output'
@@ -19,8 +18,8 @@ pipeline {
             }
         }
         stage('configure') {
-            slackSend channel: '#network-automation', message: 'pushing the configuration'
             steps {
+                slackSend channel: '#network-automation', message: 'pushing the configuration'
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
                         sh 'python3 projects/ibgp/python_scripts/config_ibgp.py'
@@ -29,8 +28,8 @@ pipeline {
             }
         }
         stage('post_validation') {
-            slackSend channel: '#network-automation', message: 'performing the post-validation'
             steps {
+                slackSend channel: '#network-automation', message: 'performing the post-validation'
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
                         sh 'python3 projects/ibgp/python_scripts/post_validation.py'
@@ -41,6 +40,5 @@ pipeline {
                 }
             }
         }
-        slackSend channel: '#network-automation', message: 'build SUCCESS'
     }
 }
