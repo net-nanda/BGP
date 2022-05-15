@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
-                        sh cd projects/ibgp/ && ls
+                        sh 'cd projects/ibgp/ && ls'
                         sh 'output/{pre_validation,configure,post_validation}'
                         sh 'pwd && ls'
                         sh 'python3 python_scripts/pre_validation.py'
