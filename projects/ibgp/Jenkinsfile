@@ -5,6 +5,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
+                        cleanWs()
                         sh 'mkdir -p projects/ibgp/output'
                         sh 'mkdir projects/ibgp/output/pre_validation'
                         sh 'mkdir projects/ibgp/output/post_validation'
