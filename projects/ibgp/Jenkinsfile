@@ -5,10 +5,8 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
-                        sh 'cd projects/ibgp/ && ls'
-                        sh 'mkdir -p output/{pre_validation,configure,post_validation}'
-                        sh 'pwd && ls output/'
-                        sh 'python3 python_scripts/pre_validation.py'
+                        sh 'mkdir -p projects/ibgp/output/{pre_validation,configure,post_validation}'
+                        sh 'python3 projects/ibgp/python_scripts/pre_validation.py'
                     }
                 }
             }
@@ -17,7 +15,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
-                        sh 'python3 python_scripts/configure.py'
+                        sh 'python3 projects/ibgp/python_scripts/configure.py'
                     }
                 }
             }
@@ -26,7 +24,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
-                        sh 'python3 python_scripts/post_validation.py'
+                        sh 'python3 projects/ibgp/python_scripts/post_validation.py'
                   		sh 'zip -r changeReq123_output.zip output'
                         archiveArtifacts artifacts: 'changeReq123_output.zip'
                         cleanWs()
