@@ -4,7 +4,6 @@ pipeline {
         stage('pre_validation') {
             steps {
                 slackSend channel: '#network-automation', color: "good", message: "Build Started: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)"
-                slackSend failOnError: true, channel: '#network-automation', color: "danger", message: "Build failed at pre_validation stage: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)"
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
                         sh 'rm -rf projects/ibgp/output'
@@ -16,22 +15,22 @@ pipeline {
                         sh 'python3 projects/ibgp/python_scripts/pre_validation.py'
                     }
                 }
+                slackSend failOnError: true, channel: '#network-automation', color: "danger", message: "Build failed at pre_validation stage: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)"
             }
         }
         stage('configure') {
             steps {
-                slackSend failOnError: true, channel: '#network-automation', color: "danger", message: "Build failed at configure stage: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)"
                 slackSend channel: '#network-automation', message: "pushing the configuration: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)", color: "good" 
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
                         sh 'python3 projects/ibgp/python_scripts/config_ibgp.py'
                     }
                 }
+                slackSend failOnError: true, channel: '#network-automation', color: "danger", message: "Build failed at configure stage: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)"
             }
         }
         stage('post_validation') {
             steps {
-                slackSend failOnError: true, channel: '#network-automation', color: "danger", message: "Build failed at post_validation stage: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)"
                 slackSend channel: '#network-automation', message: "performing the post_validation: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)", color: "good" 
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
@@ -41,6 +40,7 @@ pipeline {
                         cleanWs()
                     }
                 }
+                slackSend failOnError: true, channel: '#network-automation', color: "danger", message: "Build failed at post_validation stage: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)"
                 slackSend channel: '#network-automation', message: "Build Successfully deployed!: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)", color: "good"   
             }
         }
