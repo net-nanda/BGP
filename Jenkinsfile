@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('pre_validation') {
             steps {
-                slackSend channel: '#network-automation', color: "good", message: "Build Started: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>) ${env.CHANGE_AUTHOR}"
+                slackSend channel: '#network-automation', color: "good", message: "Build Started: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>) "
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
                         sh 'rm -rf projects/ibgp/output'
@@ -19,7 +19,7 @@ pipeline {
         }
         stage('configure') {
             steps {
-                slackSend channel: '#network-automation', message: "pushing the configuration: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>) ${env.CHANGE_AUTHOR}", color: "good" 
+                slackSend channel: '#network-automation', message: "pushing the configuration: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>) ", color: "good" 
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
                         sh 'python3 projects/ibgp/python_scripts/config_ibgp.py'
@@ -29,7 +29,7 @@ pipeline {
         }
         stage('post_validation') {
             steps {
-                slackSend channel: '#network-automation', message: "performing the post_validation: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>) ${env.CHANGE_AUTHOR}", color: "good" 
+                slackSend channel: '#network-automation', message: "performing the post_validation: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>) ", color: "good" 
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
                         sh 'python3 projects/ibgp/python_scripts/post_validation.py'
