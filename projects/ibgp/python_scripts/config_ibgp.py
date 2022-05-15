@@ -15,11 +15,11 @@ def config_worker(username, password, device):
         }
         session = ConnectHandler(**dev_dict)
         print('--- logged in to device ', device)
-        file_path = 'projects/ibgp/input/'+str(device)+'.cfg'
+        file_path = 'input/'+str(device)+'.cfg'
         with open (file_path, 'r') as f:
             commands = f.read().splitlines()
         output = session.send_config_set(commands)
-        with open ('projects/ibgp/output/configuration/'+device+'.txt', 'a+') as f:
+        with open ('output/configuration/'+device+'.txt', 'a+') as f:
             f.write(output)
         return
 
