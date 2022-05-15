@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
-                        sh 'python3 projects/ibgp/python_scripts/config_ibgp.py'
+                        sh 'python3 projects/ibgp/python_scripts/config_bgp.py'
                     }
                 }
             }
@@ -44,9 +44,6 @@ pipeline {
         }
         failure {
             slackSend channel: '#network-automation', message: "Build failed: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)", color: "red"
-        }
-        always {
-            slackSend channel: '#network-automation', message: "Build status: ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}|Open>)"
         }
     }
 }
