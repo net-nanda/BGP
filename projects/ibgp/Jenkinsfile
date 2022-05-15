@@ -1,7 +1,9 @@
 pipeline {
     agent any
+    slackSend channel: '#network-automation', message: 'build started'
     stages {
         stage('pre_validation') {
+            slackSend channel: '#network-automation', message: 'performing pre-validation'
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
@@ -17,6 +19,7 @@ pipeline {
             }
         }
         stage('configure') {
+            slackSend channel: '#network-automation', message: 'pushing the configuration'
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
@@ -26,6 +29,7 @@ pipeline {
             }
         }
         stage('post_validation') {
+            slackSend channel: '#network-automation', message: 'performing the post-validation'
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'cisco_pass', passwordVariable: 'GNS3_PASS', usernameVariable: 'GNS3_UNAME')]) {
@@ -37,20 +41,6 @@ pipeline {
                 }
             }
         }
+        slackSend channel: '#network-automation', message: 'build SUCCESS'
     }
-    post {
-       // only triggered when blue or green sign
-       success {
-           slackSend (channel: "#network-automation")
-       }
-       // triggered when red sign
-       failure {
-           slackSend (channel: "#network-automation")
-       }
-       // trigger every-works
-       always {
-           slackSend (channel: "#network-automation")
-       }
-    }
-}
 
