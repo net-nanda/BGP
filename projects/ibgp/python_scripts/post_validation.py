@@ -3,6 +3,7 @@ from netmiko.exceptions import NetmikoAuthenticationException
 from netmiko.ssh_exception import NetmikoAuthenticationException
 import threading
 import os
+from time import sleep
 
 
 def config_worker(username, password, device):
@@ -38,6 +39,7 @@ def config_worker(username, password, device):
 
 
 def main ():
+    sleep (60)
     dev_list = ['router1', 'router2', 'router3', 'router4']
     config_thread_list = []
     username = os.getenv('GNS3_UNAME')
