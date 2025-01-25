@@ -26,12 +26,12 @@ def get_vars (dev_vars):
     return dev_dict
 
 def config_worker(dev_list):
-    df = pd.read_csv('/home/nanda/Documents/code_practice/netmiko_practice/base_topology_data.csv')
+    df = pd.read_csv('../base_topology_data.csv')
     print(df)
     row = df[df['hostname'] == dev_list] 
     dev_vars = row.to_dict(orient='records')[0]
     dev_dict = get_vars(dev_vars)
-    ENV = Environment(loader=FileSystemLoader('/home/nanda/Documents/code_practice/netmiko_practice/jinja_templates'))
+    ENV = Environment(loader=FileSystemLoader('../jinja_templates'))
     int_config_tmp = ENV.get_template('base_topology_config.j2')
     int_config = int_config_tmp.render(dev_vars=dev_dict)
     login_info = {
@@ -66,4 +66,3 @@ def config_worker(dev_list):
 dev_list = ['r1', 'r2', 'r3', 'r4']
 with ThreadPoolExecutor(max_workers=10) as executor:
     executor.map(config_worker, dev_list)
-    
