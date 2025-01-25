@@ -27,7 +27,6 @@ def get_vars (dev_vars):
 
 def config_worker(dev_list):
     df = pd.read_csv('../base_topology_data.csv')
-    print(df)
     row = df[df['hostname'] == dev_list] 
     dev_vars = row.to_dict(orient='records')[0]
     dev_dict = get_vars(dev_vars)
@@ -56,7 +55,6 @@ def config_worker(dev_list):
             r4_dict = get_vars(row)
     bgp_config = bgp_config_tmp.render(r1_dict=r1_dict, r2_dict=r2_dict, r3_dict=r3_dict,r4_dict=r4_dict)
     print('#'*5+' loggin to device '+dev_list+' #'*5)
-    print(bgp_config)
     session = ConnectHandler(**login_info)
     output = session.send_config_set(bgp_config)
     print(output)
