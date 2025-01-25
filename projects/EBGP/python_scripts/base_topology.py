@@ -53,7 +53,6 @@ def config_worker(dev_list):
             r3_dict = get_vars(row)
         if row['hostname'] == 'r4':
             r4_dict = get_vars(row) 
-    print(r1_dict)
     bgp_config = bgp_config_tmp.render(r1_dict=r1_dict, r2_dict=r2_dict, r3_dict=r3_dict,r4_dict=r4_dict)
     print('#'*5+' loggin to device '+dev_list+' #'*5)
     session = ConnectHandler(**login_info)
